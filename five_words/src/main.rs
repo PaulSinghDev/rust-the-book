@@ -1,11 +1,9 @@
 use std::io;
 fn main() {
-    println!("Give me five words!");
-    let mut index: i8 = 0;
+    println!("Give me five words!");    
+    let mut answers = Vec::new();
     
-    let mut answers =Vec::new();
-    
-    while index < 5 {
+    for index in 0..5 {
         
         println!("word {}:", index + 1);
         
@@ -14,12 +12,10 @@ fn main() {
         io::stdin().read_line(&mut word).expect("Something went wrong");
 
         answers.push(word);
-
-        index = index + 1
     }
     println!("Nice one. Your words are:");
     
-    for word in answers {
-        println!("{word}");
+    for (i,word) in answers.iter().enumerate() {
+        println!("Word {}: {word}", i + 1);
     }
 }
